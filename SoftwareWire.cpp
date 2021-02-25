@@ -225,7 +225,7 @@ void SoftwareWire::beginTransmission(int address)
 
 
 //
-uint8_t SoftwareWire::endTransmission(boolean sendStop)
+uint8_t SoftwareWire::endTransmission(uint8_t sendStop)
 {
   if(sendStop)
     i2c_stop();
@@ -239,7 +239,7 @@ uint8_t SoftwareWire::endTransmission(boolean sendStop)
 //
 // The requestFrom() read the data from the I2C bus and stores it in a buffer.
 //
-uint8_t SoftwareWire::requestFrom(uint8_t address, uint8_t size, boolean sendStop)
+uint8_t SoftwareWire::requestFrom(uint8_t address, uint8_t size, uint8_t sendStop)
 {
   uint8_t n=0;             // number of valid received bytes. Start with 0 bytes.
 
@@ -294,7 +294,7 @@ uint8_t SoftwareWire::requestFrom(uint8_t address, uint8_t size, boolean sendSto
 
 
 //
-uint8_t SoftwareWire::requestFrom(int address, int size, boolean sendStop)
+uint8_t SoftwareWire::requestFrom(int address, int size, uint8_t sendStop)
 {
   return requestFrom( (uint8_t) address, (uint8_t) size, sendStop);
 }
